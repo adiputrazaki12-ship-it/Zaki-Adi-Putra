@@ -3,235 +3,1838 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaki Adi Putra - Profil</title>
+    <title>Zaki Adi Putra - Dark Tech Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #0a192f;
-            --secondary: #112240;
-            --accent: #64ffda;
-            --text-primary: #e6f1ff;
-            --text-secondary: #8892b0;
+            --primary: #333333;
+            --secondary: #5A5A5A;
+            --accent: #BFBFBF;
+            --background: #121212;
+            --text-primary: #F7FAFC;
+            --text-secondary: #CBD5E0;
+            
+            --neon-glow: 0 0 10px rgba(191, 191, 191, 0.7), 0 0 20px rgba(191, 191, 191, 0.5), 0 0 30px rgba(191, 191, 191, 0.3);
+            --neon-glow-strong: 0 0 15px rgba(191, 191, 191, 0.9), 0 0 30px rgba(191, 191, 191, 0.7), 0 0 45px rgba(191, 191, 191, 0.5);
+            
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.6), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.7), 0 4px 6px -2px rgba(0, 0, 0, 0.5);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.8), 0 10px 10px -5px rgba(0, 0, 0, 0.6);
+            
+            --border-radius-sm: 0.125rem;
+            --border-radius-base: 0.375rem;
+            --border-radius-md: 0.5rem;
+            --border-radius-lg: 0.75rem;
+            --border-radius-xl: 1rem;
+            --border-radius-2xl: 1.5rem;
+            --border-radius-full: 9999px;
+            
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .light-mode {
+            --primary: #333333;
+            --secondary: #5A5A5A;
+            --accent: #BFBFBF;
+            --background: #FFFFFF;
+            --text-primary: #1a202c;
+            --text-secondary: #4a5568;
+            
+            --neon-glow: 0 0 10px rgba(51, 51, 51, 0.3), 0 0 20px rgba(51, 51, 51, 0.2), 0 0 30px rgba(51, 51, 51, 0.1);
+            --neon-glow-strong: 0 0 15px rgba(51, 51, 51, 0.5), 0 0 30px rgba(51, 51, 51, 0.3), 0 0 45px rgba(51, 51, 51, 0.2);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, var(--primary), #020c1b);
+            background-color: var(--background);
             color: var(--text-primary);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            transition: var(--transition-slow);
+            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 500px;
-            width: 100%;
-            background: rgba(17, 34, 64, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(100, 255, 218, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+        }
+
+        h2 {
+            font-size: 1.875rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            box-shadow: var(--neon-glow);
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            border: 1px solid var(--secondary);
+            border-radius: var(--border-radius-lg);
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
             position: relative;
             overflow: hidden;
         }
 
-        .container::before {
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(191, 191, 191, 0.2), transparent);
+            transition: var(--transition-slow);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg), var(--neon-glow);
+            border-color: var(--accent);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--primary);
+        }
+
+        .card {
+            background-color: rgba(51, 51, 51, 0.5);
+            border-radius: var(--border-radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--accent), #0a192f);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            box-shadow: var(--neon-glow);
         }
 
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 25px;
-            overflow: hidden;
-            border: 3px solid var(--accent);
-            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: var(--secondary);
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-img .placeholder {
-            color: var(--text-secondary);
-            font-size: 14px;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .name {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 600;
-            background: linear-gradient(90deg, var(--text-primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .description {
-            text-align: center;
-            color: var(--text-secondary);
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        .links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 20px;
-            background: rgba(10, 25, 47, 0.6);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: var(--text-primary);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-        }
-
-        .link-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            background: rgba(100, 255, 218, 0.05);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg), var(--neon-glow);
             border-color: var(--accent);
         }
 
-        .link-icon {
-            margin-right: 15px;
-            font-size: 20px;
+        /* Grid System */
+        .tech-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(90, 90, 90, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(90, 90, 90, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(18, 18, 18, 0.9);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            text-shadow: var(--neon-glow);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
             color: var(--accent);
-            width: 24px;
+            text-shadow: var(--neon-glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            box-shadow: var(--neon-glow);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(51, 51, 51, 0.5);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent);
+            box-shadow: var(--neon-glow);
+            transform: rotate(30deg);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(51, 51, 51, 0.5);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .mobile-menu-btn:hover {
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(51, 51, 51, 0.8) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards;
+            background: linear-gradient(90deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--neon-glow-strong);
+        }
+
+        .typing-text {
+            border-right: 2px solid var(--accent);
+            animation: blink 1s infinite;
+            padding-right: 5px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.2s forwards;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease 0.4s forwards;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-bottom: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+            transform: rotate(45deg);
+            box-shadow: var(--neon-glow);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            background-color: rgba(191, 191, 191, 0.1);
+            border-radius: var(--border-radius-full);
+            opacity: 0.5;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: var(--neon-glow);
+        }
+
+        .shape-1 {
+            width: 100px;
+            height: 100px;
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 150px;
+            height: 150px;
+            top: 50%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 80px;
+            height: 80px;
+            bottom: 20%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl), var(--neon-glow);
+            border: 1px solid rgba(90, 90, 90, 0.5);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-shadow: var(--neon-glow);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--accent);
+            transition: var(--transition);
+            box-shadow: var(--neon-glow);
+            border: 1px solid rgba(90, 90, 90, 0.5);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            box-shadow: var(--neon-glow-strong);
+        }
+
+        .service-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        /* Portfolio Section */
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(51, 51, 51, 0.5);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+            padding: 0.5rem 1.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: var(--border-radius-full);
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--accent);
+            background-color: rgba(51, 51, 51, 0.8);
+            box-shadow: var(--neon-glow);
+            border-color: var(--accent);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl), var(--neon-glow);
+            border-color: var(--accent);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 18, 18, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 1.5rem;
             text-align: center;
         }
 
-        .link-text {
-            flex: 1;
-        }
-
-        .link-arrow {
-            color: var(--accent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .link-item:hover .link-arrow {
+        .portfolio-item:hover .portfolio-overlay {
             opacity: 1;
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 30px 20px;
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        .portfolio-title {
+            color: var(--accent);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            text-shadow: var(--neon-glow);
+        }
+
+        .portfolio-category {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.875rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-content::before, .testimonial-content::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            position: absolute;
+            line-height: 1;
+            text-shadow: var(--neon-glow);
+        }
+
+        .testimonial-content::before {
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .testimonial-content::after {
+            bottom: -2rem;
+            right: -1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--border-radius-full);
+            object-fit: cover;
+            border: 2px solid var(--accent);
+            box-shadow: var(--neon-glow);
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+            color: var(--accent);
+        }
+
+        .author-info p {
+            margin: 0;
+            font-size: 0.875rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: var(--border-radius-full);
+            background-color: var(--secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--accent);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-card {
+            text-align: center;
+            perspective: 1000px;
+        }
+
+        .team-card-inner {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .team-card:hover .team-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .team-card-front, .team-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .team-card-front {
+            background-color: rgba(51, 51, 51, 0.5);
+        }
+
+        .team-card-back {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--text-primary);
+            transform: rotateY(180deg);
+        }
+
+        .team-image {
+            width: 120px;
+            height: 120px;
+            border-radius: var(--border-radius-full);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent);
+            box-shadow: var(--neon-glow);
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .team-role {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--border-radius-full);
+            background-color: rgba(18, 18, 18, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            text-decoration: none;
+            transition: var(--transition);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary);
+            box-shadow: var(--neon-glow);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--accent);
+            box-shadow: var(--neon-glow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(51, 51, 51, 0.5);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+            border-radius: var(--border-radius-lg);
+            color: var(--text-primary);
+            font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(191, 191, 191, 0.2), var(--neon-glow);
+        }
+
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .form-input:focus + .form-label,
+        .form-input:not(:placeholder-shown) + .form-label {
+            top: -0.5rem;
+            left: 0.75rem;
+            font-size: 0.75rem;
+            background-color: var(--background);
+            padding: 0 0.5rem;
+            color: var(--accent);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .blog-card {
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl), var(--neon-glow);
+            border-color: var(--accent);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .blog-card:hover .blog-image {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            background-color: rgba(51, 51, 51, 0.5);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .blog-title {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9) 0%, rgba(51, 51, 51, 0.8) 100%);
+            padding: 3rem 0 1.5rem;
+            border-top: 1px solid rgba(90, 90, 90, 0.3);
+            position: relative;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            text-shadow: var(--neon-glow);
+        }
+
+        .footer-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-links h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            text-shadow: var(--neon-glow);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: var(--border-radius-full);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-lg), var(--neon-glow);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            border: 1px solid rgba(90, 90, 90, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--neon-glow-strong);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-5px) translateX(-50%);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                border-color: transparent;
+            }
+            50% {
+                border-color: var(--accent);
+            }
+        }
+
+        /* Scroll Animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stagger-item.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Particle Canvas */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
             }
             
-            .profile-img {
-                width: 120px;
-                height: 120px;
+            .services-grid,
+            .portfolio-grid,
+            .team-grid,
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .name {
-                font-size: 24px;
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: rgba(18, 18, 18, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(90, 90, 90, 0.3);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .services-grid,
+            .portfolio-grid,
+            .team-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .portfolio-filter {
+                flex-wrap: wrap;
+            }
+            
+            .floating-shapes {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-img">
-            <div class="placeholder">Foto Profil</div>
-            Ganti dengan <img src="profil.png"> jika foto tersedia 
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Tech Grid Background -->
+    <div class="tech-grid"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Zaki Adi Putra</div>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="theme-toggle">☀️</button>
+                    <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+                </div>
+            </nav>
         </div>
-        
-        <h1 class="name">Zaki Adi Putra</h1>
-        
-        <p class="description">
-            Siswa, Penghapal AL-Quran, Self Development
-        </p>
-        
-        <div class="links">
-            <a href="tel:+6285782809921" class="link-item">
-                <div class="link-icon">📱</div>
-                <div class="link-text">+62 857-8280-9921</div>
-                <div class="link-arrow">→</div>
-            </a>
-            
-            <a href="https://www.instagram.com/zakiputra857/" target="_blank" class="link-item">
-                <div class="link-icon">📷</div>
-                <div class="link-text">Instagram</div>
-                <div class="link-arrow">→</div>
-            </a>
-            
-            <a href="https://lynk.id/v2/admin/dashboard" target="_blank" class="link-item">
-                <div class="link-icon">🔗</div>
-                <div class="link-text">Lynk</div>
-                <div class="link-arrow">→</div>
-            </a>
-            
-            <a href="https://www.youtube.com/@zelitsputri4411" target="_blank" class="link-item">
-                <div class="link-icon">▶️</div>
-                <div class="link-text">YouTube - Zelits Putri</div>
-                <div class="link-arrow">→</div>
-            </a>
-            
-            <a href="https://www.youtube.com/@AbsurdioChannel" target="_blank" class="link-item">
-                <div class="link-icon">▶️</div>
-                <div class="link-text">YouTube - Absurdio Channel</div>
-                <div class="link-arrow">→</div>
-            </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm <span class="typing-text">Zaki Adi Putra</span></h1>
+                <p class="hero-subtitle">Saya Zaki Adi Putra, pelajar yang menyeimbangkan disiplin spiritual dan kreativitas modern.
+Saya percaya ilmu tanpa nilai kehilangan arah, dan nilai tanpa aksi kehilangan makna.
+Melalui hafalan Al-Quran, rutinitas refleksi, dan produksi konten digital, saya melatih diri untuk berpikir tajam, bertindak konsisten, dan berkarya dengan tujuan.
+
+Setiap proyek—dari “Barang yang Bisa Ngomong” hingga Project: Mati-Inner-Loser—bukan sekadar karya, tapi proses memahami diri dan manusia.
+Saya ingin menciptakan konten yang tidak hanya menarik perhatian, tapi menanamkan kesadaran.
+
+“Saya tidak mengejar viralitas, saya mengejar versi diri yang lebih bernilai dari kemarin.”.</p>
+                <div class="hero-btns">
+                    <a href="#portfolio" class="btn">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
         </div>
-    </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="scroll-reveal">About Me</h2>
+            <div class="about-grid">
+                <div class="about-image scroll-reveal">
+                    <img src="zakiiii.jpg" alt="Zaki Adi Putra">
+                </div>
+                <div class="about-content scroll-reveal">
+                    <p>✦ Bidang & Fokus Karya
+
+Storytelling digital pendek
+
+Voice-over & naskah naratif
+
+Self-development & refleksi diri.✦ Arah & Tujuan
+
+Dalam beberapa tahun ke depan, saya bertekad menjadi sosok yang mampu menjembatani dunia spiritual dan dunia digital — seorang kreator yang tetap berakar pada nilai, bahkan di tengah arus algoritma.</p>
+                    <p>.</p>
+                    <div class="stats">
+                        <div class="stat-card stagger-item">
+                            <div class="stat-number" data-count="3">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card stagger-item">
+                            <div class="stat-number" data-count="1">0</div>
+                            <div class="stat-label">Happy Clients</div>
+                        </div>
+                        <div class="stat-card stagger-item">
+                            <div class="stat-number" data-count="6">0</div>
+                            <div class="stat-label">mont Experience</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <h2 class="scroll-reveal">MY skil</h2>
+            <div class="services-grid">
+                <div class="service-card card scroll-reveal">
+                    <div class="service-icon">💻</div>
+                    <h3 class="service-title"> Design Grafis</h3>
+                    <p>Saya menguasai dasar desain grafis dan tata visual menggunakan Canva dan tools digital lain.
+Fokus saya adalah menciptakan desain yang sederhana namun efektif—mengutamakan keseimbangan warna, ritme visual, dan kejelasan pesan.
+Pendekatan saya menggabungkan storytelling visual dan prinsip minimalis futuristik agar setiap karya terlihat bersih, modern, dan bermakna.</p>
+                </div>
+                <div class="service-card card scroll-reveal">
+                    <div class="service-icon">🚀</div>
+                    <h3 class="service-title">Self Development</h3>
+                    <p>Saya melihat pengembangan diri bukan sekadar motivasi, tapi sistem.
+Lewat rutinitas seperti gym, refleksi dua halaman per hari, dan 2-minute rule, saya melatih disiplin, fokus, dan kesadaran diri.
+Bagi saya, self-development adalah seni membangun versi diri yang bisa diandalkan, bukan hanya saat semangat — tapi juga saat lelah.
+
+“Saya nggak menunggu motivasi datang. Saya membangun sistem yang bikin saya tetap bergerak.”.</p>
+                </div>
+                <div class="service-card card scroll-reveal">
+                    <div class="service-icon">🧠</div>
+                    <h3 class="service-title">Critikal Thingking</h3>
+                    <p>Saya tidak berhenti di “apa yang benar,” tapi menelusuri mengapa sesuatu dianggap benar.
+Bagi saya, berpikir kritis bukan tentang membantah, tapi memahami pola dan alasan di balik setiap hal.
+Saya belajar melihat dari banyak sisi sebelum menyimpulkan—karena kebenaran sering tersembunyi di tempat yang tidak populer.
+
+“Saya tidak ingin sekadar pintar menjawab, tapi jernih dalam menilai.”.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="scroll-reveal">My Portfolio</h2>
+            <div class="portfolio-filter scroll-reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Design</button>
+                
+                
+                <button class="filter-btn" data-filter="branding">Branding</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item scroll-reveal" data-category="web">
+                    <img src="22b5604eca105ae195aa809dc734d071.jpg" alt="Project 1" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">E-Commerce Website</h3>
+                        <p class="portfolio-category">Web Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-reveal" data-category="app">
+                    <img src="10k Views Celebration Background Design, 10k Views Youtube Thumbnail Design, 10k +views, Ten Thousand Views Png PNG and Vector with Transparent Background for Free Download.jpg" alt="Project 2" class="portfolio-image">
+                    <img src="22b5604eca105ae195aa809dc734d071.jpg" alt="Project 2class="portfolio-image
+                    <div class="portfolio-overlay">
+                       
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-reveal" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 3" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title"> Shop Branding</h3>
+                        <p class="portfolio-category">Branding</p>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-reveal" data-category="web">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 4" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Finance Dashboard</h3>
+                        <p class="portfolio-category">Web Design</p>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-reveal" data-category="app">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 5" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Travel App</h3>
+                        <p class="portfolio-category">Mobile App</p>
+                    </div>
+                </div>
+                <div class="portfolio-item scroll-reveal" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Project 6" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Tech Startup Branding</h3>
+                        <p class="portfolio-category">Branding</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="container">
+            <h2 class="scroll-reveal">Meet The Team</h2>
+            <div class="team-grid">
+                <div class="team-card scroll-reveal">
+                    <div class="team-card-inner">
+                        <div class="team-card-front">
+                            <img src="Picture0012.jpg" alt="Zaki Adi Putra" class="team-image">
+                            <h3 class="team-name">Zaki Adi Putra</h3>
+                            <p class="team-role">UI/UX Designer & Frontend Developer</p>
+                        </div>
+                        <div class="team-card-back">
+                            <h3>Zaki Adi Putra</h3>
+                            <p>Specializing in creating beautiful, functional digital experiences with a focus on user-centered design.</p>
+                            <div class="team-social">
+                                <a href="#" class="social-icon">in</a>
+                                <a href="#" class="social-icon">tw</a>
+                                <a href="#" class="social-icon">ig</a>
+                            </div>
+                        </div>
+                  
+                            </div>
+                        </div>
+                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="scroll-reveal">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info scroll-reveal">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Bogor, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>adiputrazaki12@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+62 85782809921</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🧿</div>
+                        <div>
+                            <h3>Instagram</h3>
+                            <p>zakiputra857</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form scroll-reveal">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" class="form-input" placeholder=" " required>
+                            <label for="name" class="form-label">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" class="form-input" placeholder=" " required>
+                            <label for="email" class="form-label">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" class="form-input" placeholder=" ">
+                            <label for="subject" class="form-label">Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" class="form-input form-textarea" placeholder=" " required></textarea>
+                            <label for="message" class="form-label">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Zaki Adi Putra</div>
+                    <p class="footer-description">Creating beautiful, functional digital experiences that make a difference.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">tw</a>
+                        <a href="#" class="social-icon">ig</a>
+                        <a href="#" class="social-icon">fb</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">UI/UX Design</a></li>
+                        <li><a href="#">Frontend Development</a></li>
+                
+                        <li><a href="#">Branding</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:hello@zakiadiputra.com">adiputrazaki12@gmail.com</a></li>
+                        <li><a href="tel:+6281234567890">+62 857 8280 9921 </a></li>
+                       
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Zaki Adi Putra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#hero" class="back-to-top" id="back-to-top">↑</a>
 
     <script>
-        // Efek animasi sederhana saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.querySelector('.container');
-            container.style.opacity = '0';
-            container.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                container.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                container.style.opacity = '1';
-                container.style.transform = 'translateY(0)';
-            }, 100);
-            
-            // Efek hover yang lebih smooth untuk link
-            const linkItems = document.querySelectorAll('.link-item');
-            linkItems.forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-3px)';
-                });
+        // Dark Mode Toggle (Default is dark mode)
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        if (currentTheme === 'light') {
+            document.body.classList.add('light-mode');
+            themeToggle.textContent = '🌙';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            const theme = document.body.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'light' ? '🌙' : '☀️';
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll Animations
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+        const staggerItems = document.querySelectorAll('.stagger-item');
+        
+        const scrollRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        scrollRevealElements.forEach(el => {
+            scrollRevealObserver.observe(el);
+        });
+        
+        // Stagger animation for items in a container
+        const staggerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const items = entry.target.querySelectorAll('.stagger-item');
+                    items.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.classList.add('revealed');
+                        }, index * 100);
+                    });
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        document.querySelectorAll('.stats, .services-grid, .portfolio-grid, .team-grid, .blog-grid').forEach(container => {
+            staggerObserver.observe(container);
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
                 
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 100);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
                 });
             });
         });
+
+        // Testimonial Slider
+        const testimonialSlider = document.getElementById('testimonials-slider');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentSlide = 0;
+        
+        function showSlide(index) {
+            testimonialSlider.style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update dots
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            testimonialDots[index].classList.add('active');
+            
+            currentSlide = index;
+        }
+        
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-slide'));
+                showSlide(slideIndex);
+            });
+        });
+        
+        // Auto slide
+        setInterval(() => {
+            let nextSlide = currentSlide + 1;
+            if (nextSlide >= testimonialDots.length) {
+                nextSlide = 0;
+            }
+            showSlide(nextSlide);
+        }, 5000);
+
+        // Animated Counter
+        const statNumbers = document.querySelectorAll('.stat-number');
+        
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = entry.target;
+                    const count = parseInt(target.getAttribute('data-count'));
+                    const duration = 2000; // 2 seconds
+                    const step = count / (duration / 16); // 60fps
+                    let current = 0;
+                    
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= count) {
+                            target.textContent = count;
+                            clearInterval(timer);
+                        } else {
+                            target.textContent = Math.floor(current);
+                        }
+                    }, 16);
+                    
+                    counterObserver.unobserve(target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        statNumbers.forEach(number => {
+            counterObserver.observe(number);
+        });
+
+        // Form Validation
+        const contactForm = document.getElementById('contact-form');
+        
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Simple validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name && email && message) {
+                // In a real application, you would send the form data to a server here
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            } else {
+                alert('Please fill in all required fields.');
+            }
+        });
+
+        // Particle Effect
+        const canvas = document.getElementById('particle-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        const particles = [];
+        const particleCount = 80;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.color = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+                this.alpha = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+        
+        function initParticles() {
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            
+            requestAnimationFrame(animateParticles);
+        }
+        
+        initParticles();
+        animateParticles();
+
+        // Typing Effect
+        const typingText = document.querySelector('.typing-text');
+        const text = "Zaki Adi Putra";
+        let index = 0;
+        let isDeleting = false;
+        
+        function type() {
+            const currentText = text.substring(0, index);
+            typingText.textContent = currentText;
+            
+            if (!isDeleting && index < text.length) {
+                index++;
+                setTimeout(type, 100);
+            } else if (isDeleting && index > 0) {
+                index--;
+                setTimeout(type, 50);
+            } else {
+                isDeleting = !isDeleting;
+                setTimeout(type, 1000);
+            }
+        }
+        
+        // Start typing effect after a delay
+        setTimeout(type, 1000);
     </script>
 </body>
 </html>
